@@ -1,19 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Count from "./components/Count";
+import { useDispatch } from "react-redux";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const dispatch = useDispatch();
   return (
     <>
-    <div>
-      <button>Increment</button>
-      <button>Devrement</button>
-    </div>
+      <div>
+        <button onClick={(e) => dispatch({type: 'INCREMENT'})}>Increment</button>
+        <Count />
+        <button onClick={(e) => dispatch({type: 'DECREMENT'})}>Decrement</button>
+      </div>
     </>
-  )
+  );  
 }
 
-export default App
+export default App;
